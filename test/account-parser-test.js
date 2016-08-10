@@ -10,20 +10,21 @@ describe('AccountParser.parse', () => {
   "| || || || || || || || || |" +
   "|_||_||_||_||_||_||_||_||_|" +
   "                           ";
+
   var accountParser = new AccountParser(zeros);
 
   it('can parse first digit', () => {
-    assert.equal(accountParser.rawDigit(),
+    assert.equal(accountParser.digitOne(),
     " _ " +
     "| |" +
     "|_|");
   })
 
   it('can identify first digit', () => {
-    assert.equal(accountParser.digitOne(), "0");
+    assert.equal(accountParser.digitOneValue(), "0");
   })
 
-  xit('can parse all zeros', () => {
-    assert.equal(accountParser.parse(), "000000000");
+  it('can parse all zeros', () => {
+    assert.equal(accountParser.accountNumber(), "000000000");
   })
 });
