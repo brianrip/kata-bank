@@ -1,11 +1,17 @@
 const assert = require('chai').assert;
 const AccountParser = require('../lib/account-parser');
 
-describe('AccountParser', () => {
-  var number1 = "1"
-  var accountParser = new AccountParser(number1);
+// Scan a txt file line by line
+// Step one:  Identify all zeros after parsing txt file scenario
+describe('AccountParser.parse', () => {
+  var zeros=
+  " _  _  _  _  _  _  _  _  _ \n" +
+  "| || || || || || || || || |\n" +
+  "|_||_||_||_||_||_||_||_||_|\n" +
+  "                           \n";
+  var accountParser = new AccountParser(zeros);
 
-  it('testing setup', () => {
-    assert.equal(accountParser.number1, "1");
+  it('can parse all zeros', () => {
+    assert.equal(accountParser.parse(), "000000000");
   })
 });
