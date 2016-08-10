@@ -5,13 +5,21 @@ const AccountParser = require('../lib/account-parser');
 // Step one:  Identify all zeros after parsing txt file scenario
 describe('AccountParser.parse', () => {
   var zeros=
-  " _  _  _  _  _  _  _  _  _ \n" +
-  "| || || || || || || || || |\n" +
-  "|_||_||_||_||_||_||_||_||_|\n" +
-  "                           \n";
+  // 4 lines of 27 chars representing parsed txt file
+  " _  _  _  _  _  _  _  _  _ " +
+  "| || || || || || || || || |" +
+  "|_||_||_||_||_||_||_||_||_|" +
+  "                           ";
   var accountParser = new AccountParser(zeros);
 
-  it('can parse all zeros', () => {
+  it('can identify first digit', () => {
+    assert.equal(accountParser.digitOne(),
+    " _ " +
+    "| |" +
+    "|_|");
+  })
+
+  xit('can parse all zeros', () => {
     assert.equal(accountParser.parse(), "000000000");
   })
 });
