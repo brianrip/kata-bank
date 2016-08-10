@@ -1,0 +1,21 @@
+{
+  "name": "kata-bank",
+  "version": "1.0.0",
+  "description": "code-challenge",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/brianrip/kata-bank"
+  },
+  "author": "Brian Rippeto",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-install": "2.1.0",
+    "babel": "^5.8.3",
+    "babel-loader": "^5.3.2",
+    "chai": "^3.2.0"
+  }
+}
