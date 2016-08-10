@@ -12,11 +12,15 @@ describe('AccountParser.parse', () => {
   "                           ";
   var accountParser = new AccountParser(zeros);
 
-  it('can identify first digit', () => {
-    assert.equal(accountParser.digitOne(),
+  it('can parse first digit', () => {
+    assert.equal(accountParser.rawDigit(),
     " _ " +
     "| |" +
     "|_|");
+  })
+
+  it('can identify first digit', () => {
+    assert.equal(accountParser.digitOne(), "0");
   })
 
   xit('can parse all zeros', () => {
