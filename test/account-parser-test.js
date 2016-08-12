@@ -1,3 +1,4 @@
+// eval(require('locus'))
 const assert = require('chai').assert;
 const AccountParser = require('../lib/account-parser');
 
@@ -23,30 +24,55 @@ describe('AccountParser.parse', () => {
   "  ||_  _|  | _||_|  ||_| _|" +
   "                           ";
 
-  var accountParseZeros = new AccountParser(zeros);
-  var accountParseOnes = new AccountParser(ones);
-  var accountParseOneToNine = new AccountParser(oneToNine);
+  var multipleAccounts =
+  "    _  _     _  _  _  _  _ " +
+  "  | _| _||_||_ |_   ||_||_|" +
+  "  ||_  _|  | _||_|  ||_| _|" +
+  "                           " +
+  " _  _  _  _  _  _  _  _  _ " +
+  "| || || || || || || || || |" +
+  "|_||_||_||_||_||_||_||_||_|" +
+  "                           " +
+  "                           " +
+  "  |  |  |  |  |  |  |  |  |" +
+  "  |  |  |  |  |  |  |  |  |" +
+  "                           ";
+
 
   xit('can parse first digit', () => {
     assert.equal(accountParseZeros.digitOne(),
     " _ " +
     "| |" +
     "|_|");
-  })
+  });
 
-  it('can identify first digit', () => {
-    assert.equal(accountParseZeros.digitOneValue(), "0");
-  })
+  xit('can identify first digit', () => {
+    assert.equal(accountOfZeros.digitOneValue(), "0");
+  });
+
+  var accountOfZeros = new AccountParser(zeros);
 
   it('can parse all zeros', () => {
-    assert.equal(accountParseZeros.accountNumber(), "000000000");
-  })
+    assert.equal(accountOfZeros.accountNumbers(), "000000000");
+  });
+
+  var accountOfOnes = new AccountParser(ones);
 
   it('can parse all ones', () => {
-    assert.equal(accountParseOnes.accountNumber(), "111111111");
-  })
+    assert.equal(accountOfOnes.accountNumbers(), "111111111");
+  });
+
+  var accountOfOneToNine = new AccountParser(oneToNine);
 
   it('can parse one through nine', () => {
-    assert.equal(accountParseOneToNine.accountNumber(), "123456789");
-  })
+    assert.equal(accountOfOneToNine.accountNumbers(), "123456789");
+  });
+
+  var threeAccounts = new AccountParser(multipleAccounts);
+
+  it('can parse multiple account numbers', () => {
+    assert.equal(threeAccounts.accountNumbers()[0], "123456789");
+    assert.equal(threeAccounts.accountNumbers()[1], "000000000");
+    assert.equal(threeAccounts.accountNumbers()[2], "111111111");
+  });
 });
