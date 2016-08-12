@@ -25,8 +25,9 @@ describe('AccountParser.parse', () => {
 
   var accountParseZeros = new AccountParser(zeros);
   var accountParseOnes = new AccountParser(ones);
+  var accountParseOneToNine = new AccountParser(oneToNine);
 
-  it('can parse first digit', () => {
+  xit('can parse first digit', () => {
     assert.equal(accountParseZeros.digitOne(),
     " _ " +
     "| |" +
@@ -45,11 +46,7 @@ describe('AccountParser.parse', () => {
     assert.equal(accountParseOnes.accountNumber(), "111111111");
   })
 
-  // it('can parse all twos', () => {
-  //   assert.equal(accountParseTwos.accountNumber(), "222222222");
-  // })
-
-  xit('can parse one through nine', () => {
-    assert.equal(accountParseTwos.accountNumber(), "123456789");
+  it('can parse one through nine', () => {
+    assert.equal(accountParseOneToNine.accountNumber(), "123456789");
   })
 });
