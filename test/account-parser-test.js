@@ -75,4 +75,28 @@ describe('AccountParser.parse', () => {
     assert.equal(threeAccounts.accountNumbers()[1], "000000000");
     assert.equal(threeAccounts.accountNumbers()[2], "111111111");
   });
+
+
+// it('can parse multiple account numbers', () => {
+//
+//   AccountParser.expects(:parse).with(fakeAccounts).returns([1,2,3])
+//   RawAccountNumber.expects(:parse)
+//
+// });
+
+
+
+
+
+
+  // Account Validation tests:
+
+  // var preParsedAccount = new AccountParser();
+  //
+  // var validAccount1 = "345882865";
+  // var validAccount2 = "457508000";
+  //
+  // xit('can check if account number is valid', () => {
+  //   assert.equal(preParsedAccount.accountNumbers(validAccount1), "345882865");
+  // });
 });
